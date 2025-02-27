@@ -30,7 +30,7 @@ Client-side:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/FAOEuFMD/milestones-dashboard.git
+git clone https://github.com/carterclairee/fao-targets-dashboard.git
 cd milestones-dashboard
 ```
 
@@ -76,7 +76,7 @@ Please make sure to keep these files out of version control to avoid potential i
 
 1. Create Environment File
 
-Create a `.env` file in the root directory of the project and fill in the necessary environment variables - ask the development team for the correct values. Use the `.env.example` file as a template:
+Create a `.env` file in the root directory of the project and fill in the necessary environment variables. Use the `.env.example` file as a template:
 
 ```sh
   cp .env.example .env
@@ -99,9 +99,3 @@ Create a `.env` file in the root directory of the project and fill in the necess
 - For development, run `npm run dev` in the project directory to start the Express server on port 5000 using nodemon. Nodemon will watch the server for changes, so the server updates without having to restart each time a change is made.
 - For production, run `npm start` to start the server on port 5000 using node.
 - Type `cd client` in a new terminal and run `npm run dev` to start the client server in development mode with hot reloading in port 5173.
-
-## Deployment
-
-The staging environment is hosted on Render, allowing for changes to be tested before they are deployed to production. The Render environment is connected to the production database on AWS, where necessary changes and updates can be made.
-
-Good luck!
