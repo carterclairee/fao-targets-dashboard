@@ -44,6 +44,10 @@ const TargetsTable: React.FC<TargetsTableProps> = ({ data }) => {
         );
       },
     },
+    {
+      accessorKey: "priority",
+      header: "Priority"
+    },
   ], []);
 
   // Count occurences of each expected_result so we can merge their cells later
@@ -59,7 +63,7 @@ const TargetsTable: React.FC<TargetsTableProps> = ({ data }) => {
   // create set to keep track of which expected_result values have been rendered (Set eliminates duplicates)
   let seenExpectedResults = new Set<string>();
 
-  const table = useReactTable({
+  const table = useReactTable<RowData>({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
