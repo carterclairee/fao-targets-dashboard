@@ -11,6 +11,7 @@
     target_description: string;
     target_id: string;
     target_timeframe: string;
+    priority: string;
   }
   
 // Interface for data grouped by key area id
