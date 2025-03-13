@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// TEMP route for fetching data filtered by focus objective
+// route for fetching data filtered by focus objective
 router.get('/focus_objective/:focus_objective_id', async (req, res) => {
     const {focus_objective_id} = req.params;
     try {
@@ -28,7 +28,7 @@ router.get('/focus_objective/:focus_objective_id', async (req, res) => {
     }
 })
 
-// TEMP route for fetching data filtered by focus objective and key area
+// route for fetching data filtered by focus objective and key area
 router.get('/focus_objective/:focus_objective_id/key_area/:key_area_id', async (req, res) => {
     const {focus_objective_id, key_area_id} = req.params;
     try {
