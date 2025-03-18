@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import InfoButton from "../components/InfoButton";
 import Footer from "../components/Footer";
 import { useEffect, useState } from 'react';
-import { API_URL } from "./APIFunctions";
 
 interface FocusObjective {
   id: number;
@@ -32,7 +31,7 @@ const Homepage: React.FC = () => {
   // Call API for Focus Objective data
   const getFocus = async () => {
     try {
-      const results = await fetch(`${API_URL}/api/targets/`, {
+      const results = await fetch(`/api/targets/`, {
         method: "GET",
         headers: {"Content-Type": "application/json"},
       });

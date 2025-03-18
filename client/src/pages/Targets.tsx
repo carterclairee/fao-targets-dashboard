@@ -5,7 +5,6 @@ import axios from "axios";
 import {RowData} from "../types/interfaces.ts";
 import {formatKeyAreaName, countMet, countProgress, countNotStarted, calculateStatus} from "./KeyAreasFunctions.ts";
 import TargetsCard from "../components/TargetsCard.tsx";
-import { API_URL } from "./APIFunctions";
 import TargetsTable from "../components/TargetsTable.tsx";
 import Filters from "../components/Filters.tsx";
 
@@ -32,7 +31,7 @@ const Targets: React.FC = () => {
   // Get data filtered by focus objective and key area
   const fetchTargetsData = async (focusId: number, keyId: number) => {
     try {
-      const response = await axios.get(`${API_URL}/api/targets/focus_objective/${focusId}/key_area/${keyId}`);
+      const response = await axios.get(`$/api/targets/focus_objective/${focusId}/key_area/${keyId}`);
       setTargetsData(response.data);
     } catch (error) {
       console.error('Error fetching data: ', error);

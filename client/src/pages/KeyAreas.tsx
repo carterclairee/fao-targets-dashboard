@@ -6,7 +6,6 @@ import {GroupedKeyArea} from "../types/interfaces.ts"
 import {groupByKeyArea, formatKeyAreaName} from "./KeyAreasFunctions.ts"
 import MetDonut from "../components/MetDonut.tsx";
 import TimeframeBarChart from "../components/TimeframeBarChart.tsx";
-import { API_URL } from "./APIFunctions";
 
 // Type for url params
 type RouteParams = {
@@ -36,7 +35,7 @@ const KeyAreas: React.FC = () => {
   // Get data filtered by focus objective
   const fetchData = async (id: number) => {
     try {
-      const response = await axios.get(`${API_URL}/api/targets/focus_objective/${id}`);
+      const response = await axios.get(`/api/targets/focus_objective/${id}`);
 
       // Group data by key area so we can map through them. Data will be an array with one object corresponding to each key area id: [ {keyAreaId: id, items: [rows for that key area]}, etc. ]
       const groupedData = groupByKeyArea(response.data);
