@@ -1,0 +1,5 @@
+{
+    "/api/targets": "/targets",
+    "/api/targets/focus_objective/:focusId": "/targets?focus_objective_id=:focusId",
+    "/api/targets/focus_objective/:focusId/key_area/:keyId": "/targets?focus_objective_id=:focusId&key_area_id=:keyId"
+}
