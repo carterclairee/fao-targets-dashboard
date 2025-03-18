@@ -31,5 +31,6 @@ export default defineConfig({
         secure: false,
       },
     },
+    allowedHosts: ['fao-targets-dashboard-frontend.onrender.com']
   },
 });
