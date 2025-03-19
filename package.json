@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www",
+    "start": "json-server --watch db.json --routes routes.json --host 0.0.0.0 --port 5000",
     "migrate": "node model/database.js",
     "start:json": "json-server --watch db.json --routes routes.json --port 5000"
   },
