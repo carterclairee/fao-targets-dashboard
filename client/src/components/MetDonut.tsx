@@ -1,6 +1,7 @@
-import Plot from "react-plotly.js";
+import Plotly from "plotly.js-basic-dist";
 import { RowData } from "../types/interfaces";
 import { countMet } from "../pages/KeyAreasFunctions";
+import { useEffect, useRef } from "react";
 
 // function to calculate met targets and percentage
 const calculateCompletion = (data: RowData[]) => {
@@ -16,9 +17,13 @@ const MetDonut: React.FC<{data: RowData[]}> = ({ data }) => {
     // Get the calculations
     const { metCount, notMetCount, total } = calculateCompletion(data);
 
-    return (
-        <Plot
-            data={[
+    // create a ref to the div element for Plotly
+    const plotlyRef = useRef<HTMLDivElement | null>(null);
+
+    // Generate plotly chart when data changes
+    useEffect(() => {
+        if (plotlyRef.current) {
+            Plotly.react(plotlyRef.current, [
                 {
                     type: "pie",
                     labels: ["Met Targets", "Unmet Targets"],
@@ -31,8 +36,7 @@ const MetDonut: React.FC<{data: RowData[]}> = ({ data }) => {
                         colors: ["#048B5D", "#9ea6a1B3"]
                     },
                 },
-            ]}
-            layout={{
+            ], {
                 width: 200,
                 height: 200,
                 title: "",
@@ -59,12 +63,15 @@ const MetDonut: React.FC<{data: RowData[]}> = ({ data }) => {
                     l: 0,
                     r: 0,
                 },
-            }}
-            config={{
+            }, {
                 responsive: true,
                 displayModeBar: false,
-            }}
-        />
+            });
+        }
+    }, [metCount, notMetCount, total]);
+
+    return (
+        <div ref={plotlyRef}></div>
     );
 };
 

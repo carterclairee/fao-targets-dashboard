@@ -11,18 +11,6 @@ export default defineConfig({
       'plotly.js': 'plotly.js-basic-dist',
     },
   },
-  build: {
-    rollupOptions: {
-      output: {
-        // split chunks based on dependencies
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return id.toString().split('node_modules/')[1].split('/')[0]; // chunk by package name
-          }
-        }
-      }
-    }
-  },
   server: {
     proxy: {
       "/api": {
